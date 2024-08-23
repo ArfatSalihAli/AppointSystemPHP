@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <title>Book Appointment</title>
+    <style>
+        .alert {
+            display: none;
+        }
+        .booking-form {
+            background: #f7f7f7;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .booking-form h2 {
+            margin-bottom: 20px;
+        }
+        .booking-form .btn {
+            width: 100%;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+       <!-- Navbar -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <a class="navbar-brand" href="#">Commission</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html" class="badge badge-success">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html" class="badge badge-primary">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="appointment.html" class="badge badge-warning">Oppintment</a>
+                </li>
+                <li class="nav-item dropdown">
+                    
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        More
+                    </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#Reserved">Reserved</a>
+                        <a class="dropdown-item" href="#Reserved">Reserved</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#Reserved">Reserved</a>
+                        </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header><br><br><br>
+
+    <!-- Booking Form -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="booking-form">
+                    <h2>Book an Appointment</h2>
+                    <div id="error-alert" class="alert alert-danger" role="alert">
+                        There was an error booking the appointment. Please try again.
+                    </div>
+                    <form id="appointment-form">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date:</label>
+                            <input type="date" class="form-control" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Time:</label>
+                            <input type="time" class="form-control" id="time" name="time" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Book Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="css/bootstrap.min.css"></script>
+    <script>
+        $(document).ready(function() {
+            $('#appointment-form').on('submit', function(event) {
+                event.preventDefault();
+                
+                var name = $('#name').val();
+                var email = $('#email').val();
+                var date = $('#date').val();
+                var time = $('#time').val();
+                
+                if (name === "" || email === "" || date === "" || time === "") {
+                    $('#error-alert').text("All fields are required!").show();
+                    return;
+                }
+
+                $.ajax({
+                    url: 'book.php',
+                    type: 'POST',
+                    data: {
+                        name: name,
+                        email: email,
+                        date: date,
+                        time: time
+                    },
+                    success: function(response) {
+                        window.location.href = 'success.html';
+                    },
+                    error: function() {
+                        $('#error-alert').text("There was an error processing your request. Please try again.").show();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

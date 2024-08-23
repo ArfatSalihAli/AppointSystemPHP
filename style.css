@@ -1,0 +1,35 @@
+body{
+
+   /* background-image: url(images/m3.jpg);*/
+
+}
+
+
+/*navbar*/
+
+.navbar{
+    box-shadow: 0px 0px 30px rgb(227, 228, 237, 0.37);
+    border: 1.5px solid rgb(255, 255, 255, 018);
+}
+
+.social-icon a{
+   color: white;
+   justify-content: space-between;
+}
+
+
+/*Cards*/
+.card-custom{
+
+   border: none;
+   border-radius: 15px;
+   box-shadow: 0 8px 8px 8px rgb(0, 0, 0, 0.1);
+   transition: transform 0.5s;
+}
+.card-custom:hover{
+   transform: translateY(-10px);
+
+}
+.card-body{
+   text-align: center;
+}

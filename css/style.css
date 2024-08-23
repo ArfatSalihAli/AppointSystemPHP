@@ -1,0 +1,102 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.container .cont .Serveses h3{
+    display: flex;
+    justify-content: center;
+
+}
+header{
+    position: fixed;
+}
+.Serveses{
+    background-color: rgb(238, 238, 243);
+    width: 100%;
+
+}
+
+.container .row{
+    display: flex;
+    gap: 1rem;
+}
+.conteiner .card{
+    overflow: hidden;
+    border: 1px solid #ffff;
+    border-radius: 10px;
+    display: flex;
+    grid-template-columns: 1fr 1fr 1fr ;
+    flex-grow: 1;
+    gap: 1rem;
+    transition: 0.5s;
+
+}
+.conteiner .card:hover{
+    transform: scale(1.1);
+}
+.contents{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    font-size: 2.2em;
+    margin-bottom: 30px;
+    margin-top: 50px;
+  
+
+}
+.card-body{
+    text-align: center;
+}
+.card{
+    width: 17.15em;
+    box-shadow: 8px 8px 8px rgb(1 1 1/20%);
+    border: 10px;
+    padding: 25px;
+    margin: 20px;
+    transition: 0.5s;
+}
+.card:hover{
+    transform: scale(1.1);
+}
+.icon{
+    font-size: 5em;
+    text-align: center;
+    box-shadow: 10px 10px 8px rgb(0, 0, 0, 0.1);
+    margin: 10px;
+}
+.info{
+    text-align: center;
+}
+.footer{
+    background-color:  rgb(44, 44, 102);;
+    
+}
+.contenern .card{
+    margin: 10px;
+}
+.footer-title{
+    color: white;
+}
+.social-icon{
+    font-size: 1.8rem;
+    color: rgb(224, 229, 235);
+    background-color: white;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    padding-right: 30px;
+    
+    
+}
+.social-icon{
+    background-color: rgb(44, 44, 102);;
+}
+.social-icon a{
+    color: white;
+    margin: 20px;
+}
